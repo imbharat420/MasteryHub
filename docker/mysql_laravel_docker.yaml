@@ -1,0 +1,50 @@
+FROM php:7.4-apache
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+  libzip-dev \
+  libpng-dev \
+  libonig-dev \
+  && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+
+# Enable Apache modules
+RUN a2enmod rewrite headers
+
+# Copy the application code
+COPY . /var/www/html
+
+# Set the working directory
+WORKDIR /var/www/html
+
+# Install Composer and PHP dependencies
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN composer install --no-dev --optimize-autoloader
+
+
+
+
+
+
+# >>> Terminal Configuration 
+# ***To build and run the Docker image, you can use the following commands
+
+# Set permissions
+# RUN chown -R www-data:www-data /var/www/html
+
+
+# Build the Docker image
+# docker build -t my-laravel-app .
+
+# Run the Docker image
+# docker run -p 80:80 --name my-laravel-app-container -d my-laravel-app
+
+
+
+
+# >>> laravel .env files 
+# DB_CONNECTION=mysql
+# DB_HOST=db
+# DB_PORT=3306
+# DB_DATABASE=laravel
+# DB_USERNAME=laravel
+# DB_PASSWORD=secret

@@ -1,0 +1,55 @@
+FROM node:14
+
+# Install MongoDB driver
+RUN npm install mongodb
+
+# Copy the application code
+COPY . /app
+
+# Set the working directory
+WORKDIR /app
+
+# Install NPM dependencies
+RUN npm install
+
+# Expose the application's port
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]
+
+
+
+
+# >>> To build and run the Docker image, you can use the following commands:
+
+# # Build the Docker image
+#docker build -t my-node-app .
+
+# # Run the Docker image
+#docker run -p 3000:3000 --name my-node-app-container -d my-node-app
+
+
+
+
+
+
+# >>> This can typically be done using the mongo command-line client. For example:
+
+# # Connect to the MongoDB server
+# mongo
+
+# # Create a database
+# use my-node-app-db
+
+# # Create a user
+# db.createUser({
+#   user: "my-node-app-user",
+#   pwd: "secret",
+#   roles: [
+#     {
+#       role: "readWrite",
+#       db: "my-node-app-db"
+#     }
+#   ]
+# })
