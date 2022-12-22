@@ -1,4 +1,4 @@
-**react portal modal with remove listener when blur event**
+**React portal modal with remove listener when blur event**
 
 
 In React, a portal is a way to render a component outside of the parent component's DOM tree. This can be useful for creating modals or other UI elements that should be displayed on top of the main content.

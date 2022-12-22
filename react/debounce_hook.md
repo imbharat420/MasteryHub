@@ -1,4 +1,4 @@
-debounce hook in reactjs
+**Debounce hook in reactjs**
 
 In React, a debounce hook is a function that allows you to limit the rate at which a specific function can be called. Debouncing is useful when you want to prevent a function from being called too frequently, such as when handling input events from a form element or an API request that should not be made on every keystroke.
 
