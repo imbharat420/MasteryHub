@@ -1,4 +1,4 @@
-**throtling reactjs**
+**Throtling reactjs**
 
 Throttling is a technique that allows you to limit the rate at which a specific function can be called. Throttling is similar to debouncing, but unlike debouncing, which waits for a certain amount of time after the last call to execute the function, throttling executes the function at a regular interval.
 
