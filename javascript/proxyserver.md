@@ -16,6 +16,24 @@ const server = http.createServer((req, res) => {
 server.listen(3000);
 ```
 
+
+```js
+const http = require('http');
+const httpProxy = require('http-proxy');
+
+const proxy = httpProxy.createProxyServer({});
+
+const server = http.createServer((req, res) => {
+  proxy.web(req, res, {
+    target: 'http://example.com',
+    changeOrigin: true
+  });
+});
+
+server.listen(3000);
+
+```
+
 This code creates a simple HTTP proxy server that listens on port 3000 and forwards all incoming requests to the target server at ```http://example.com```, which could be located in the United Kingdom or any other country.
 
 Keep in mind that you may need to consider other factors, such as network latency and potential regulatory issues, when setting up a proxy server in a different country.
