@@ -1,0 +1,10 @@
+{
+    "auto-save.enable": true,
+    "auto-save.saveOnFocusChange": true,
+    "auto-save.saveOnWindowChange": true,
+    "auto-save.saveOnSuspend": true,
+    "auto-save.commit": true,
+    "auto-save.remote": "origin",
+    "auto-save.branch": "master"
+
+}
