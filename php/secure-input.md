@@ -22,4 +22,4 @@ To increase the security of the PHP code from cross-site scripting (XSS) and oth
 9.  Use a WAF: Use a web application firewall (WAF) to protect against common web vulnerabilities such as XSS, SQL injection, and CSRF attacks.
     
 
-By following these measures, you can significantly increase the security of your PHP code and protect against common vulnerabilities.
+By following these measures, you can significantly increase the security of your PHP code and protect against common vulnerabilities. 
