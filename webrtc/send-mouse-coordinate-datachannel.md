@@ -1,4 +1,3 @@
-
 **Send mouse coordinates with data channels**
 
 To send mouse coordinates using data channels, you can follow these steps:
@@ -10,23 +9,23 @@ To send mouse coordinates using data channels, you can follow these steps:
 
 Here is an example of how you could implement this in JavaScript:
 
-Copy code
-
 ```js
 // Create a new RTCPeerConnection object
 const peerConnection = new RTCPeerConnection();
 
 // Create a new data channel
-const dataChannel = peerConnection.createDataChannel('mouse-coordinates');
+const dataChannel = peerConnection.createDataChannel("mouse-coordinates");
 
 // Add an event listener for the 'message' event on the data channel
-dataChannel.addEventListener('message', event => {
+dataChannel.addEventListener("message", event => {
   // Handle incoming message
   const message = event.data;
   console.log(`Received message: ${message}`);
 });
 
 // Send the mouse coordinates
-dataChannel.send(JSON.stringify({x: 100, y: 200}));`` 
+dataChannel.send(JSON.stringify({ x: 100, y: 200 }));
+``;
 ```
+
 Keep in mind that this is just a basic example, and there are many other considerations you should take into account when using data channels, such as error handling and signaling to establish the connection.
