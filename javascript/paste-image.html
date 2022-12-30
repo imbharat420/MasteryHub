@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      var canvas = document.getElementById("canvas");
+
+      window.addEventListener("paste", function (event) {
+        // Check for the Ctrl key being pressed
+
+        // Check which key was pressed
+        var items = (event.clipboardData || event.originalEvent.clipboardData)
+          .items;
+        console.log(JSON.stringify(items)); // will give you the mime types
+
+        // Ctrl+V was pressed, prevent the default behavior
+        event.preventDefault();
+        // Get the image data from the clipboard
+        var clipboardData =
+          event.clipboardData ||
+          window.clipboardData ||
+          event.originalEvent.clipboardData;
+        var imageData = clipboardData.getData("image/png");
+        console.log(imageData);
+        // Check if the image data is not empty
+        if (imageData) {
+          // Image data is not empty, create a new image element
+          var img = new Image();
+          // Set the src of the image element to the image data
+          img.src = imageData;
+          // When the image has loaded, draw it onto the canvas
+          img.onload = function () {
+            canvas.getContext("2d").drawImage(img, 0, 0);
+          };
+        }
+        var pastedData = clipboardData.getData("Text").toUpperCase();
+        if (typeof pastedData == "string") {
+          console.log(pastedData);
+        }
+        if (pastedData.indexOf("E") > -1) {
+          //alert('found an E');
+          event.stopPropagation();
+          event.preventDefault();
+        }
+      });
+
+      // window.addEventListener('paste', ... or
+      // document.onpaste = function(event){
+      //   var items = (event.clipboardData || event.originalEvent.clipboardData).items;
+      //   console.log(JSON.stringify(items)); // will give you the mime types
+      //   for (index in items) {
+      //     var item = items[index];
+      //     if (item.kind === 'file') {
+      //       var blob = item.getAsFile();
+      //       var reader = new FileReader();
+      //       reader.onload = function(event){
+      //         console.log(event.target.result)}; // data url!
+      //       reader.readAsDataURL(blob);
+      //     }
+      //   }
+      // }
+
+      /*
+If the imageData variable is an empty string when you try to paste an image from the clipboard, it means that the getData method was unable to retrieve the image data from the clipboard. There are a few possible reasons for this:
+
+The data in the clipboard might not be in a supported format. The getData method only works for certain data formats, such as 'text/plain', 'text/html', and 'image/png'. If the data in the clipboard is not in one of these formats, the getData method will return an empty string.
+
+The clipboard data might not be accessible. The clipboardData property is only available on certain events, such as the paste event, and it is not always possible to access the clipboard data. For example, the clipboardData property is not available in some mobile browsers or when the page is served over an insecure connection (HTTP).
+
+The event object might not be defined. Make sure that you have defined the event object and that it is being passed to the event listener function.
+*/
+
+      // window.addEventListener('load', function() {
+      //   // Set focus on the canvas
+      //   canvas.focus();
+      // });
+
+      // document.addEventListener('keydown', function(event) {
+
+      //   // Check for the Ctrl key being pressed
+      //   if (event.ctrlKey) {
+      //     // Check which key was pressed
+      //     if (event.code === 'KeyV') {
+      //       // Ctrl+V was pressed, prevent the default behavior
+      //       event.preventDefault();
+      //       // Get the canvas element
+
+      //       // Check if the canvas is focused
+      //       document.activeElement = canvas;
+      //       if (document.activeElement === canvas) {
+      //           console.log(event)
+      //         // The canvas is focused, get the image data from the clipboard
+      //         var imageData = event.clipboardData.getData('image/png');
+      //         // Check if the image data is not empty
+      //         if (imageData) {
+      //           // Image data is not empty, create a new image element
+      //           var img = new Image();
+      //           // Set the src of the image element to the image data
+      //           img.src = imageData;
+      //           // When the image has loaded, draw it onto the canvas
+      //           img.onload = function() {
+      //             canvas.getContext('2d').drawImage(img, 0, 0);
+      //           };
+      //         }
+      //       }else{
+      //         console.log(document.activeElement)
+      //       }
+      //     }
+      //   }
+      // });
+
+      // canvas.addEventListener('click', function() {
+      //   // Set the canvas as the active element
+
+      //   canvas.focus();
+      // });
+    </script>
+  </body>
+</html>
