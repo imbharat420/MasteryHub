@@ -72,3 +72,45 @@ function MyAudioPlayer() {
 ```
 
 And here is an example of a mini video player using the `usePersistentPlayback` hook:
+
+Here is the rest of the example of a mini video player using the `usePersistentPlayback` hook:
+
+Copy code
+
+```jsx
+import { usePersistentPlayback } from "./usePersistentPlayback";
+
+function MyVideoPlayer() {
+  const player = useRef(null);
+  usePersistentPlayback(player.current);
+
+  return (
+    <>
+      <video ref={player} src="video.mp4"></video>
+      <button onClick={() => player.current.play()}>Play</button>
+      <button onClick={() => player.current.pause()}>Pause</button>
+      <input
+        type="range"
+        min="0"
+        max="1"
+        step="0.1"
+        onChange={event => (player.current.volume = event.target.value)}
+      />
+      <input
+        type="range"
+        min="0"
+        max="100"
+        step="1"
+        onChange={event =>
+          (player.current.currentTime =
+            (event.target.value * player.current.duration) / 100)
+        }
+      />
+    </>
+  );
+}
+```
+
+This will create a mini video player that continues playing from the same point where it was left off, even when the user navigates to a different page and then comes back. The player also has play/pause buttons and a volume slider to allow the user to control the video playback, and a progress bar that updates as the video plays.
+
+You can style the player using CSS to give it a similar appearance to the YouTube player.
