@@ -67,7 +67,7 @@ Web API patterns (easy to hard):
 -   GraphQL
 -   REST
 -   gRPC 
-- ...
+
 1.  REST (Representational State Transfer)
 2.  CRUD (Create, Read, Update, Delete)
 3.  HATEOAS (Hypermedia as the Engine of Application State)
