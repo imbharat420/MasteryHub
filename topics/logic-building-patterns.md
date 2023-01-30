@@ -64,9 +64,7 @@ Web API patterns (easy to hard):
 
 <details>
  <summary>Web API patterns</summary>
--   GraphQL
--   REST
--   gRPC 
+
 
 1.  REST (Representational State Transfer)
 2.  CRUD (Create, Read, Update, Delete)
@@ -98,6 +96,7 @@ Web API patterns (easy to hard):
 28.  Health check
 29.  OpenAPI (previously known as Swagger)
 30.  GraphQL.
+31.  gRPC 
 </details>
 
 Messaging patterns (easy to hard):
