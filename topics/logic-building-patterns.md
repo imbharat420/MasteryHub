@@ -61,9 +61,44 @@ Data access patterns (easy to hard):
 
 Web API patterns (easy to hard):
 
+
+<details>
+ <summary>Web API patterns</summary>
 -   GraphQL
 -   REST
--   gRPC
+-   gRPC 
+- ...
+1.  REST (Representational State Transfer)
+2.  CRUD (Create, Read, Update, Delete)
+3.  HATEOAS (Hypermedia as the Engine of Application State)
+4.  Pagination
+5.  Versioning
+6.  Filtering
+7.  Sorting
+8.  Validation
+9.  Error handling
+10.  Caching
+11.  Compression
+12.  Authentication and authorization
+13.  Async and batch processing
+14.  Streaming
+15.  Server push notifications
+16.  Media types negotiation
+17.  Link header-based navigation
+18.  CORS (Cross-Origin Resource Sharing)
+19.  Content negotiation
+20.  OAuth (Open Authorization)
+21.  JWT (JSON Web Token)
+22.  Basic authentication
+23.  Digest authentication
+24.  API Key
+25.  Rate limiting 
+26.  Load balancing
+27.  Circuit breaker
+28.  Health check
+29.  OpenAPI (previously known as Swagger)
+30.  GraphQL.
+</details>
 
 Messaging patterns (easy to hard):
 
